@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { Text, View, Pressable } from "react-native";
 import { routes } from "../constants/routes";
 import { useNavigation } from '@react-navigation/native';
+import { styles } from "../styles/Styles";
 
 const AuthScreen = () => {
   const { navigate } = useNavigation();
@@ -9,22 +10,14 @@ const AuthScreen = () => {
   return (
     <View style={styles.container}>
       <Text>Hello Auth !</Text>
-      <Button
+      <Pressable
+        style={styles.button}
         onPress={() => navigate(routes.HOME)}
-        title="test"
-        color="#841584"
-        accessibilityLabel="Learn more about this purple button"
-      />
+      >
+        <Text >test</Text>
+      </Pressable>
     </View>
   );
 };
 
 export default AuthScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

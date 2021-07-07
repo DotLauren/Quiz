@@ -1,20 +1,28 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { TextInput, View, Pressable, Text } from "react-native";
+import { styles } from "../styles/Styles";
 
 const AddQuizNameScreen = () => {
+  const [text, onChangeText] = React.useState();
+
   return (
     <View style={styles.container}>
-      <Text>Hello AddQuizName !</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+        placeholder="Quiz name!"
+        clearButtonMode='while-editing'
+      />
+      <Pressable
+        style={styles.button}
+        onPress={() => navigate(routes.ADD_QUIZ_NAME)}
+      >
+        <Text >créer un quiz</Text>
+      </Pressable>
     </View>
   );
 };
 
 export default AddQuizNameScreen;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
