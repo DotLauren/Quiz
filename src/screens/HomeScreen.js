@@ -1,10 +1,21 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Button, View } from "react-native";
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Hello Home !</Text>
+      <Button
+        // onPress={}
+        title="Créer un quiz"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+      />
+      <Button
+        // onPress={}
+        title="Faire un quiz"
+        color="#841584"
+        accessibilityLabel="Learn more about this purple button"
+      />
     </View>
   );
 };
