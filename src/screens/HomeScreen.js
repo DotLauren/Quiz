@@ -1,20 +1,23 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet, Button, View } from "react-native";
+import { routes } from "../constants/routes";
 
 const HomeScreen = () => {
+  const { navigate } = useNavigation();
   return (
     <View style={styles.container}>
       <Button
         // onPress={}
-        title="Créer un quiz"
-        color="#841584"
-        accessibilityLabel="Learn more about this purple button"
+        title='Créer un quiz'
+        color='#841584'
+        accessibilityLabel='Learn more about this purple button'
       />
       <Button
-        // onPress={}
-        title="Faire un quiz"
-        color="#841584"
-        accessibilityLabel="Learn more about this purple button"
+        onPress={() => navigate(routes.QUIZ_START)}
+        title='Faire un quiz'
+        color='#841584'
+        accessibilityLabel='Learn more about this purple button'
       />
     </View>
   );
