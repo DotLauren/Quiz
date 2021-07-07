@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Pressable, View, Text } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { routes } from "../constants/routes";
@@ -17,7 +17,7 @@ const HomeScreen = () => {
       </Pressable>
       <Pressable
         style={styles.button}
-        onPress={() => navigate(routes.ADD_QUIZ_NAME)}
+        onPress={() => navigate(routes.QUIZ_START)}
       >
         <Text >Faire un quiz</Text>
       </Pressable>
