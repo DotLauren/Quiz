@@ -1,12 +1,26 @@
 import React from "react";
 import { TextInput, View, Pressable, Text } from "react-native";
 import { styles } from "../styles/Styles";
+import { useNavigation } from "@react-navigation/native";
+import { routes } from "../constants/routes";
 
 const AddQuizNameScreen = () => {
-  const [text, onChangeText] = React.useState();
+  const { navigate } = useNavigation();
+  const [text, onChangeText] = React.useState('');
+  const [errorMessage, setErrorMessage] = React.useState('');
+
+  const valideQuizName = () => {
+    if (text === '') {
+      setErrorMessage('mange tes mort');
+    } else {
+      setErrorMessage('');
+      navigate(routes.ADD_QUIZ_QUESTION);
+    }
+  }
 
   return (
     <View style={styles.container}>
+      <Text style={styles.errorMessage}>{errorMessage}</Text>
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
@@ -16,9 +30,9 @@ const AddQuizNameScreen = () => {
       />
       <Pressable
         style={styles.button}
-        onPress={() => navigate(routes.ADD_QUIZ_NAME)}
+        onPress={valideQuizName}
       >
-        <Text >créer un quiz</Text>
+        <Text>Enregistrer</Text>
       </Pressable>
     </View>
   );
