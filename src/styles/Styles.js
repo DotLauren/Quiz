@@ -34,4 +34,7 @@ export const styles = StyleSheet.create({
     errorMessage: {
         color: 'red',
     },
+    scrollView: {
+        paddingTop: 10,
+    }
 });

@@ -3,6 +3,7 @@ import { TextInput, View, Pressable, Text } from "react-native";
 import { styles } from "../styles/Styles";
 import { useNavigation } from "@react-navigation/native";
 import { routes } from "../constants/routes";
+import { db } from "../firebase";
 
 const AddQuizNameScreen = () => {
   const { navigate } = useNavigation();
@@ -16,6 +17,11 @@ const AddQuizNameScreen = () => {
       setErrorMessage('');
       navigate(routes.ADD_QUIZ_QUESTION);
     }
+  }
+
+  const test = async () => {
+    const test = await db.collection("quiz").get()
+    console.log(test.docs.map(doc => doc.data()));
   }
 
   return (
