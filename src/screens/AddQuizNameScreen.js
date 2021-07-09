@@ -31,7 +31,7 @@ const AddQuizNameScreen = () => {
         style={styles.input}
         onChangeText={onChangeText}
         value={text}
-        placeholder="Quiz name!"
+        placeholder='Quiz name!'
         clearButtonMode='while-editing'
       />
       <Pressable
@@ -45,4 +45,3 @@ const AddQuizNameScreen = () => {
 };
 
 export default AddQuizNameScreen;
-
