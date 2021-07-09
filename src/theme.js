@@ -37,6 +37,9 @@ export const lightTheme = {
       base: "#F6F9FC",
       light: "#FFFFFF",
     },
+    text: {
+      base: "#000",
+    },
   },
 };
 
@@ -48,6 +51,9 @@ export const darkTheme = {
       light: "#232C45",
       base: "#1A2237",
       dark: "#151B2F",
+    },
+    text: {
+      base: "#FFF",
     },
   },
 };

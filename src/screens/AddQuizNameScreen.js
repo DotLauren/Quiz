@@ -11,18 +11,17 @@ const AddQuizNameScreen = () => {
         style={styles.input}
         onChangeText={onChangeText}
         value={text}
-        placeholder="Quiz name!"
+        placeholder='Quiz name!'
         clearButtonMode='while-editing'
       />
       <Pressable
         style={styles.button}
         onPress={() => navigate(routes.ADD_QUIZ_NAME)}
       >
-        <Text >créer un quiz</Text>
+        <Text>créer un quiz</Text>
       </Pressable>
     </View>
   );
 };
 
 export default AddQuizNameScreen;
-

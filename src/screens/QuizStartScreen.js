@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Switch from "../components/Switch";
+import { useDarkTheme } from "../contexts/ThemeContext";
 
 const QuizStartScreen = () => {
+  const { newTheme } = useDarkTheme();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
@@ -57,37 +60,50 @@ const QuizStartScreen = () => {
     }
   };
 
-  const question = questions.map((q) => q.questionText);
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Hello QuizStart !</Text>
-
-      {showScore ? (
-        <Text>
-          You scored {score} out of {questions.length}
+    <>
+      <View style={{ backgroundColor: newTheme.background.dark }}>
+        <Switch />
+      </View>
+      <View
+        style={[
+          styles.container,
+          { backgroundColor: newTheme.background.dark },
+        ]}
+      >
+        <Text style={[styles.title, { color: newTheme.text.base }]}>
+          Hello QuizStart !
         </Text>
-      ) : (
-        <>
-          <Text style={styles.title}>
-            {questions[currentQuestion].questionText}
+
+        {showScore ? (
+          <Text>
+            You scored {score} out of {questions.length}
           </Text>
-          <View>
-            {questions[currentQuestion].answerOptions.map(
-              (answerOption, index) => (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() =>
-                    handleAnswerOptionClick(answerOption.isCorrect)
-                  }
-                >
-                  <Text>{answerOption.answerText}</Text>
-                </TouchableOpacity>
-              )
-            )}
-          </View>
-        </>
-      )}
-    </View>
+        ) : (
+          <>
+            <Text style={[(styles.title, { color: newTheme.text.base })]}>
+              {questions[currentQuestion].questionText}
+            </Text>
+            <View>
+              {questions[currentQuestion].answerOptions.map(
+                (answerOption, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    onPress={() =>
+                      handleAnswerOptionClick(answerOption.isCorrect)
+                    }
+                  >
+                    <Text style={[{ color: newTheme.text.base }]}>
+                      {answerOption.answerText}
+                    </Text>
+                  </TouchableOpacity>
+                )
+              )}
+            </View>
+          </>
+        )}
+      </View>
+    </>
   );
 };
 
