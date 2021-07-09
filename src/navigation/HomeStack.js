@@ -8,7 +8,7 @@ import QuizStack from "./QuizStack";
 const { Navigator, Screen } = createStackNavigator();
 
 const HomeStack = () => (
-  <Navigator initialRouteName={routes.HOME} headerMode="none">
+  <Navigator initialRouteName={routes.HOME} headerMode='none'>
     <Screen component={HomeScreen} name={routes.HOME} />
     <Screen component={AddQuizStack} name={routes.ADD_QUIZ_NAME} />
     <Screen component={QuizStack} name={routes.QUIZ_START} />
